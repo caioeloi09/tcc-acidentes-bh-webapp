@@ -1,0 +1,30 @@
+# Ignorar arquivos de build e dependências
+**/node_modules/
+**/dist/
+**/build/
+**/.gradle/
+**/out/
+
+# Ignorar arquivos de IDE
+**/.idea/
+**/.vscode/
+**/*.iml
+**/.DS_Store
+
+# Ignorar arquivos de ambiente
+**/.env
+**/.env.local
+
+# Ignorar logs
+**/logs/
+**/*.log
+
+# Ignorar dados sensíveis (manter apenas estrutura)
+**/data/*.db
+**/data/*.csv
+!**/data/.gitkeep
+
+# Ignorar arquivos temporários
+**/*.tmp
+**/*.swp
+**/*.bak
