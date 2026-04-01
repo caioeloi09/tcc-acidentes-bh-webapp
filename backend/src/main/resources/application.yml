@@ -3,7 +3,7 @@ spring:
     name: accidents-bh-backend
 
   datasource:
-    url: jdbc:sqlite:${user.dir}/data/accidents.db
+    url: jdbc:sqlite:./data/accidents.db
     driver-class-name: org.sqlite.JDBC
 
   jpa:
