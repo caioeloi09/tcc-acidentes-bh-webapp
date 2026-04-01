@@ -19,10 +19,12 @@
 **/logs/
 **/*.log
 
-# Ignorar dados sensíveis (manter apenas estrutura)
+# Ignorar dados (manter apenas estrutura e gitkeep)
 **/data/*.db
 **/data/*.csv
 !**/data/.gitkeep
+# Backend Maven build output
+backend/target/
 
 # Ignorar arquivos temporários
 **/*.tmp

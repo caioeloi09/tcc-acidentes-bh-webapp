@@ -10,7 +10,7 @@ Usage:
     python migrate_data.py --input <path/to/dataset_consolidado.csv> --output <path/to/accidents.db>
 
 Defaults:
-    --input  ../../Parte\ 1\ Final/Data/dataset_consolidado.csv
+    --input  ../data/dataset_consolidado.csv   (project root data/ folder)
     --output ../backend/data/accidents.db
 """
 
@@ -220,7 +220,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input",
         default=os.path.join(os.path.dirname(__file__),
-                             "../../Parte 1 Final/Data/dataset_consolidado.csv"),
+                             "../data/dataset_consolidado.csv"),
         help="Path to dataset_consolidado.csv"
     )
     parser.add_argument(
