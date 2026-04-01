@@ -1,103 +1,103 @@
-# Escolha da Arquitetura Backend/Frontend Separados
+# Backend/Frontend Separated Architecture Decision
 
-**Data:** 2026-03-06
+**Date:** 2026-03-06
 
 ## Status
 
-Aceito
+Accepted
 
-## Responsáveis
+## Stakeholders
 
-- Caio Eloi Campos (Desenvolvedor)
-- Prof. João Guilherme Maia de Menezes (Orientador)
+- Caio Eloi Campos (Developer)
+- Prof. João Guilherme Maia de Menezes (Advisor)
 
-## Contexto e Descrição do Problema
+## Context and Problem Description
 
-O projeto requer o desenvolvimento de uma aplicação web para visualização interativa de dados de acidentes de trânsito. A decisão arquitetural fundamental é definir como estruturar a aplicação: monolítica (ex: Streamlit, Dash) ou separada em backend e frontend.
+The project requires developing a web application for interactive visualization of traffic accident data. The fundamental architectural decision is to define how to structure the application: monolithic (e.g., Streamlit, Dash) or separated into backend and frontend.
 
-## Critérios de Decisão
+## Decision Criteria
 
-- Escalabilidade e manutenibilidade do código
-- Performance no processamento de dados
-- Flexibilidade para evolução futura
-- Demonstração de conhecimento técnico (contexto acadêmico)
-- Familiaridade da equipe com as tecnologias
-- Facilidade de deploy e containerização
+- Code scalability and maintainability
+- Data processing performance
+- Flexibility for future evolution
+- Demonstration of technical knowledge (academic context)
+- Team familiarity with the technologies
+- Ease of deployment and containerization
 
-## Opções Consideradas
+## Options Considered
 
-1. **Streamlit/Dash** (Python monolítico)
-2. **Backend (Kotlin/Spring Boot) + Frontend (React)** separados
+1. **Streamlit/Dash** (Python monolithic)
+2. **Backend (Kotlin/Spring Boot) + Frontend (React)** separated
 3. **Backend (Python/FastAPI) + Frontend (React)**
 
-## Resultado da Decisão
+## Decision Outcome
 
-Opção escolhida: **Backend (Kotlin/Spring Boot) + Frontend (React)**
+Chosen option: **Backend (Kotlin/Spring Boot) + Frontend (React)**
 
-### Justificativa
+### Justification
 
-Esta arquitetura oferece o melhor equilíbrio entre demonstração de conhecimento técnico, performance e escalabilidade. A separação clara de responsabilidades permite que cada camada evolua independentemente, facilita testes e está alinhada com práticas modernas de desenvolvimento.
+This architecture offers the best balance between demonstrating technical knowledge, performance, and scalability. The clear separation of responsibilities allows each layer to evolve independently, facilitates testing, and aligns with modern development practices.
 
-### Consequências Positivas
+### Positive Consequences
 
-- **Escalabilidade**: Backend pode servir múltiplos clientes (web, mobile, CLI)
-- **Performance**: JVM otimizada para processamento de grandes volumes de dados
-- **Manutenibilidade**: Separação clara de responsabilidades
-- **Testabilidade**: Testes unitários e de integração facilitados
-- **Valor Acadêmico**: Demonstra conhecimento além de ciência de dados
-- **Reutilização**: API REST pode ser consumida por outros projetos
-- **Type Safety**: Kotlin e TypeScript reduzem erros em tempo de compilação
+- **Scalability**: Backend can serve multiple clients (web, mobile, CLI)
+- **Performance**: JVM optimized for processing large data volumes
+- **Maintainability**: Clear separation of responsibilities
+- **Testability**: Unit and integration tests made easier
+- **Academic Value**: Demonstrates knowledge beyond data science
+- **Reusability**: REST API can be consumed by other projects
+- **Type Safety**: Kotlin and TypeScript reduce compile-time errors
 
-### Consequências Negativas
+### Negative Consequences
 
-- **Complexidade inicial**: Maior tempo de setup comparado a soluções monolíticas
-- **Curva de aprendizado**: Requer conhecimento de múltiplas tecnologias
-- **Deploy**: Necessita gerenciar dois serviços separados
+- **Initial Complexity**: Longer setup time compared to monolithic solutions
+- **Learning Curve**: Requires knowledge of multiple technologies
+- **Deployment**: Needs to manage two separate services
 
-## Prós e Contras das Opções
+## Pros and Cons of Options
 
-### Streamlit/Dash (Python monolítico)
+### Streamlit/Dash (Python monolithic)
 
-**Prós:**
-- Setup rápido e simples
-- Integração direta com código Python de análise
-- Menor curva de aprendizado inicial
-- Ideal para protótipos
+**Pros:**
+- Fast and simple setup
+- Direct integration with Python analysis code
+- Lower initial learning curve
+- Ideal for prototypes
 
-**Contras:**
-- Limitações de customização de UI
-- Performance inferior para aplicações complexas
-- Difícil separação de responsabilidades
-- Menor valor acadêmico (ferramenta de prototipagem)
-- Escalabilidade limitada
+**Cons:**
+- UI customization limitations
+- Lower performance for complex applications
+- Difficult separation of responsibilities
+- Lower academic value (prototyping tool)
+- Limited scalability
 
 ### Backend (Kotlin/Spring Boot) + Frontend (React)
 
-**Prós:**
-- Arquitetura profissional e escalável
-- Performance superior (JVM)
-- Separação clara de responsabilidades
-- Ecossistema rico (Spring, React)
-- Type safety em ambas as camadas
-- Facilita testes automatizados
-- Demonstra maturidade técnica
+**Pros:**
+- Professional and scalable architecture
+- Superior performance (JVM)
+- Clear separation of responsibilities
+- Rich ecosystem (Spring, React)
+- Type safety in both layers
+- Facilitates automated testing
+- Demonstrates technical maturity
 
-**Contras:**
-- Setup inicial mais complexo
-- Requer conhecimento de múltiplas tecnologias
-- Maior tempo de desenvolvimento inicial
+**Cons:**
+- More complex initial setup
+- Requires knowledge of multiple technologies
+- Longer initial development time
 
 ### Backend (Python/FastAPI) + Frontend (React)
 
-**Prós:**
-- Integração direta com código de análise em Python
-- FastAPI é moderno e performático
-- Menor curva de aprendizado no backend
+**Pros:**
+- Direct integration with Python analysis code
+- FastAPI is modern and performant
+- Lower learning curve for backend
 
-**Contras:**
-- Performance inferior ao Kotlin/JVM para processamento intensivo
-- Menor familiaridade do desenvolvedor com FastAPI
-- Type hints do Python menos robustos que Kotlin
+**Cons:**
+- Lower performance than Kotlin/JVM for intensive processing
+- Less developer familiarity with FastAPI
+- Python type hints less robust than Kotlin
 
 ## Links
 

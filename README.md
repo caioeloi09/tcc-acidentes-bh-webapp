@@ -1,60 +1,60 @@
-# TCC - Análise de Acidentes de Trânsito em Belo Horizonte
+# TCC - Traffic Accident Analysis in Belo Horizonte
 
-Sistema web para visualização e análise interativa de dados de acidentes de trânsito em Belo Horizonte, utilizando dados abertos da BHTrans.
+Web system for interactive visualization and analysis of traffic accident data in Belo Horizonte, using open data from BHTrans.
 
-## 📋 Sobre o Projeto
+## About the Project
 
-Este projeto é parte do Trabalho de Conclusão de Curso (TCC) do curso de Sistemas de Informação da UFMG, desenvolvido por Caio Eloi Campos sob orientação do Prof. João Guilherme Maia de Menezes.
+This project is part of the Final Paper (TCC) for the Information Systems program at UFMG, developed by Caio Eloi Campos under the supervision of Prof. João Guilherme Maia de Menezes.
 
-### Objetivos
+### Goals
 
-- Disponibilizar visualizações interativas de dados de acidentes de trânsito
-- Permitir análise temporal e espacial dos sinistros
-- Facilitar a identificação de padrões e pontos críticos
-- Democratizar o acesso a informações de segurança viária
+- Provide interactive visualizations of traffic accident data
+- Enable temporal and spatial analysis of incidents
+- Facilitate the identification of patterns and critical points
+- Democratize access to road safety information
 
-## 🏗️ Arquitetura
+## Architecture
 
-O projeto utiliza uma arquitetura moderna de separação entre backend e frontend:
+The project uses a modern separated backend/frontend architecture:
 
 ```
 tcc-acidentes-bh-webapp/
-├── backend/          # API REST em Kotlin + Spring Boot
-├── frontend/         # Interface em React
-└── docs/            # Documentação técnica e ADRs
+├── backend/          # REST API in Kotlin + Spring Boot
+├── frontend/         # React interface
+└── docs/            # Technical documentation and ADRs
 ```
 
-### Stack Tecnológica
+### Tech Stack
 
 **Backend:**
 - Kotlin 1.9+
 - Spring Boot 3.x
-- SQLite (dados consolidados)
-- Gradle
+- SQLite (consolidated data)
+- Maven
 
 **Frontend:**
 - React 18+
 - TypeScript
-- Leaflet (mapas)
-- Recharts (gráficos)
+- Leaflet (maps)
+- Recharts (charts)
 - Vite
 
-## 🚀 Como Executar
+## How to Run
 
-### Pré-requisitos
+### Prerequisites
 
 - JDK 17+
 - Node.js 18+
-- npm ou yarn
+- npm or yarn
 
 ### Backend
 
 ```bash
 cd backend
-./gradlew bootRun
+mvn spring-boot:run
 ```
 
-A API estará disponível em `http://localhost:8080`
+The API will be available at `http://localhost:8080`
 
 ### Frontend
 
@@ -64,31 +64,31 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
-## 📊 Fonte dos Dados
+## Data Source
 
-Os dados utilizados são provenientes do portal de dados abertos da Prefeitura de Belo Horizonte:
-- [BHTrans - Dados de Acidentes](https://dados.pbh.gov.br/organization/bhtrans)
+Data is sourced from the open data portal of the Belo Horizonte City Hall:
+- [BHTrans - Accident Data](https://dados.pbh.gov.br/organization/bhtrans)
 
-## 📝 Documentação
+## Documentation
 
-- [Decisões Arquiteturais (ADRs)](./docs/architecture/decisions/)
+- [Architectural Decisions (ADRs)](./docs/architecture/decisions/)
 - [API Documentation](./docs/api/)
-- [Guia de Contribuição](./docs/CONTRIBUTING.md)
+- [Contribution Guide](./docs/CONTRIBUTING.md)
 
-## 👨‍🎓 Autor
+## Author
 
 **Caio Eloi Campos**
-- Curso: Sistemas de Informação - UFMG
-- Orientador: Prof. João Guilherme Maia de Menezes
+- Program: Information Systems - UFMG
+- Advisor: Prof. João Guilherme Maia de Menezes
 
-## 📄 Licença
+## License
 
-Este projeto é desenvolvido para fins acadêmicos como parte do TCC.
+This project is developed for academic purposes as part of the TCC.
 
 ---
 
-**Universidade Federal de Minas Gerais**  
-Instituto de Ciências Exatas  
+**Universidade Federal de Minas Gerais**
+Instituto de Ciências Exatas
 Departamento de Ciência da Computação

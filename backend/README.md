@@ -1,16 +1,16 @@
-# Backend - API REST
+# Backend - REST API
 
-API REST desenvolvida em Kotlin + Spring Boot para servir dados de acidentes de trânsito.
+REST API developed in Kotlin + Spring Boot to serve traffic accident data.
 
-## Tecnologias
+## Technologies
 
 - Kotlin 1.9+
 - Spring Boot 3.x
 - Spring Data JPA
 - SQLite
-- Gradle
+- Maven
 
-## Estrutura
+## Structure
 
 ```
 backend/
@@ -22,26 +22,26 @@ backend/
 │   │   │       ├── service/       # Business Logic
 │   │   │       ├── repository/    # Data Access
 │   │   │       ├── model/         # Domain Models
-│   │   │       └── config/        # Configurações
+│   │   │       └── config/        # Configuration
 │   │   └── resources/
 │   │       ├── application.yml
 │   │       └── data/
 │   └── test/
-├── build.gradle.kts
+├── pom.xml
 └── README.md
 ```
 
-## Como Executar
+## How to Run
 
 ```bash
-./gradlew bootRun
+mvn spring-boot:run
 ```
 
-API disponível em: `http://localhost:8080`
+API available at: `http://localhost:8080`
 
-## Endpoints Principais
+## Main Endpoints
 
-- `GET /api/acidentes` - Lista acidentes com filtros
-- `GET /api/acidentes/{id}` - Detalhes de um acidente
-- `GET /api/estatisticas` - Estatísticas gerais
-- `GET /api/mapa` - Dados para visualização em mapa
+- `GET /api/accidents` - List accidents with optional filters
+- `GET /api/accidents/{id}` - Details of a specific accident
+- `GET /api/statistics` - General statistics
+- `GET /api/map` - Data for map visualization

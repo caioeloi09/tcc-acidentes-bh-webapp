@@ -1,44 +1,44 @@
-# Frontend - Dashboard Interativo
+# Frontend - Interactive Dashboard
 
-Interface web desenvolvida em React para visualização interativa dos dados de acidentes.
+Web interface developed in React for interactive visualization of accident data.
 
-## Tecnologias
+## Technologies
 
 - React 18+
 - TypeScript
 - Vite
-- Leaflet (mapas)
-- Recharts (gráficos)
+- Leaflet (maps)
+- Recharts (charts)
 - TailwindCSS
 
-## Estrutura
+## Structure
 
 ```
 frontend/
 ├── src/
-│   ├── components/      # Componentes React
-│   ├── pages/          # Páginas da aplicação
-│   ├── services/       # Chamadas à API
-│   ├── hooks/          # Custom hooks
-│   ├── types/          # TypeScript types
-│   └── utils/          # Funções utilitárias
+│   ├── components/      # React Components
+│   ├── pages/           # Application Pages
+│   ├── services/        # API calls
+│   ├── hooks/           # Custom hooks
+│   ├── types/           # TypeScript types
+│   └── utils/           # Utility functions
 ├── public/
 ├── package.json
 └── README.md
 ```
 
-## Como Executar
+## How to Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Aplicação disponível em: `http://localhost:5173`
+Application available at: `http://localhost:5173`
 
-## Funcionalidades
+## Features
 
-- 🗺️ Mapa interativo com localização de acidentes
-- 📊 Gráficos de análise temporal
-- 🔍 Filtros por data, tipo, região
-- 📈 Dashboard com estatísticas principais
+- Interactive map with accident locations
+- Temporal analysis charts
+- Filters by date, type, and region
+- Dashboard with key statistics
