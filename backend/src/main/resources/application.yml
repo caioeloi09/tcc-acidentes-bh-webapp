@@ -3,13 +3,13 @@ spring:
     name: accidents-bh-backend
 
   datasource:
-    url: jdbc:sqlite:${user.dir}/data/accidents.db
+    url: jdbc:sqlite:./data/accidents.db
     driver-class-name: org.sqlite.JDBC
 
   jpa:
     database-platform: org.hibernate.community.dialect.SQLiteDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: false
     properties:
       hibernate:

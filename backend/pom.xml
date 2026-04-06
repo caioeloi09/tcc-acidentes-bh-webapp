@@ -84,6 +84,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Always run with the backend module directory as CWD,
+                         so jdbc:sqlite:./data/accidents.db resolves correctly. -->
+                    <workingDirectory>${project.basedir}</workingDirectory>
+                </configuration>
             </plugin>
 
             <!-- Kotlin Maven Plugin -->
