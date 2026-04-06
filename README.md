@@ -46,8 +46,23 @@ tcc-acidentes-bh-webapp/
 - JDK 17+
 - Node.js 18+
 - npm or yarn
+- Python 3+
 
-### Backend
+### 1. Download the Consolidated Data
+
+The application requires a pre-processed CSV file with the consolidated accident data. Download it from the link below and save it as `data/dataset_consolidado.csv` in the project root:
+
+- [dataset_consolidado.csv](https://docs.google.com/spreadsheets/d/1mPqI2mCbbBBqxm-YUBLoE1IFwBDjB01SOgdRtPTR1mk/edit?usp=sharing)
+
+### 2. Run the Data Migration Script
+
+This script reads the CSV and generates the SQLite database used by the backend:
+
+```bash
+python3 scripts/migrate_data.py
+```
+
+### 3. Backend
 
 ```bash
 cd backend
@@ -56,7 +71,7 @@ mvn spring-boot:run
 
 The API will be available at `http://localhost:8080`
 
-### Frontend
+### 4. Frontend
 
 ```bash
 cd frontend
