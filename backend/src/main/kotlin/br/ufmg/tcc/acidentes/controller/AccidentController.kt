@@ -45,12 +45,16 @@ class AccidentController(private val service: AccidentService) {
 
     /**
      * GET /api/statistics
-     * Returns aggregated statistics for the dashboard:
-     * totals, breakdowns by district, neighborhood, type, year, hour and weekday.
+     * Returns aggregated statistics for the dashboard.
+     * Optional query params: year, district, type – narrow the dataset before aggregating.
      */
     @GetMapping("/statistics")
-    fun statistics(): ResponseEntity<Map<String, Any>> =
-        ResponseEntity.ok(service.getStatistics())
+    fun statistics(
+        @RequestParam(required = false) year:     Int?,
+        @RequestParam(required = false) district: String?,
+        @RequestParam(required = false) type:     String?
+    ): ResponseEntity<Map<String, Any>> =
+        ResponseEntity.ok(service.getStatistics(year, district, type))
 
     /**
      * GET /api/map
