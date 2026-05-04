@@ -3,6 +3,7 @@ package br.ufmg.tcc.acidentes.repository
 import br.ufmg.tcc.acidentes.model.Accident
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -20,6 +21,22 @@ interface AccidentRepository : JpaRepository<Accident, Long> {
 
     @Query("SELECT a FROM Accident a WHERE a.latitude IS NOT NULL AND a.longitude IS NOT NULL")
     fun findWithCoordinates(): List<Accident>
+
+    /**
+     * Flexible filter used by the statistics endpoint.
+     * Any param that is null is ignored (no restriction applied for that dimension).
+     */
+    @Query("""
+        SELECT a FROM Accident a
+        WHERE (:year     IS NULL OR a.year         = :year)
+          AND (:district IS NULL OR a.district     = :district)
+          AND (:accType  IS NULL OR a.accidentType = :accType)
+    """)
+    fun findByFilters(
+        @Param("year")     year:     Int?,
+        @Param("district") district: String?,
+        @Param("accType")  accType:  String?
+    ): List<Accident>
 
     @Query("SELECT a.district, COUNT(a) as total FROM Accident a WHERE a.district IS NOT NULL GROUP BY a.district ORDER BY total DESC")
     fun countByDistrict(): List<Array<Any>>
