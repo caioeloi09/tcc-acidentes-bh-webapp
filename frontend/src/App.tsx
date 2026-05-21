@@ -7,6 +7,7 @@ import { AccidentsByWeekdayChart } from './components/AccidentsByWeekdayChart'
 import { TopNeighborhoodsChart } from './components/TopNeighborhoodsChart'
 import { AccidentsMap } from './components/AccidentsMap'
 import { FilterPanel, ActiveFilters, EMPTY_FILTERS } from './components/FilterPanel'
+import { ChartInsight } from './components/ChartInsight'
 import { api } from './services/api'
 import { Statistics } from './types/statistics'
 
@@ -128,12 +129,14 @@ export default function App() {
               Acidentes por Ano
             </h2>
             <AccidentsByYearChart data={stats?.byYear ?? []} />
+            <ChartInsight chartType="byYear" data={stats?.byYear ?? []} />
           </div>
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
             <h2 className="text-base font-semibold text-gray-700 mb-4">
               Acidentes por Hora do Dia
             </h2>
             <AccidentsByHourChart data={stats?.byHour ?? []} />
+            <ChartInsight chartType="byHour" data={stats?.byHour ?? []} />
           </div>
         </section>
 
@@ -144,12 +147,14 @@ export default function App() {
               Acidentes por Dia da Semana
             </h2>
             <AccidentsByWeekdayChart data={stats?.byWeekday ?? []} />
+            <ChartInsight chartType="byWeekday" data={stats?.byWeekday ?? []} />
           </div>
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
             <h2 className="text-base font-semibold text-gray-700 mb-4">
               Acidentes por Tipo
             </h2>
             <AccidentsByTypeChart data={stats?.byType ?? []} />
+            <ChartInsight chartType="byType" data={stats?.byType ?? []} />
           </div>
         </section>
 
@@ -160,6 +165,7 @@ export default function App() {
               Top 10 Bairros com Mais Acidentes
             </h2>
             <TopNeighborhoodsChart data={stats?.topNeighborhoods ?? []} limit={10} />
+            <ChartInsight chartType="topNeighborhoods" data={stats?.topNeighborhoods ?? []} />
           </div>
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
             <h2 className="text-base font-semibold text-gray-700 mb-4">
