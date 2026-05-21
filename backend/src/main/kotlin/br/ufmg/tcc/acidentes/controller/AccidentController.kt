@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.*
 @CrossOrigin(origins = ["http://localhost:5173"])
 class AccidentController(private val service: AccidentService) {
 
-    /**
-     * GET /api/accidents
-     * Returns accidents with optional filters: district, neighborhood, type, year, month.
-     */
+    
     @GetMapping("/accidents")
     fun listAccidents(
         @RequestParam(required = false) district: String?,
@@ -33,21 +30,14 @@ class AccidentController(private val service: AccidentService) {
         return ResponseEntity.ok(result)
     }
 
-    /**
-     * GET /api/accidents/{id}
-     * Returns details of a specific accident by ID.
-     */
+    
     @GetMapping("/accidents/{id}")
     fun getAccident(@PathVariable id: Long): ResponseEntity<Accident> =
         service.findById(id)
             ?.let { ResponseEntity.ok(it) }
             ?: ResponseEntity.notFound().build()
 
-    /**
-     * GET /api/statistics
-     * Returns aggregated statistics for the dashboard.
-     * Optional query params: year, district, type – narrow the dataset before aggregating.
-     */
+    
     @GetMapping("/statistics")
     fun statistics(
         @RequestParam(required = false) year:     Int?,
@@ -56,10 +46,7 @@ class AccidentController(private val service: AccidentService) {
     ): ResponseEntity<Map<String, Any>> =
         ResponseEntity.ok(service.getStatistics(year, district, type))
 
-    /**
-     * GET /api/map
-     * Returns only accidents that have valid lat/lon coordinates (for Leaflet map).
-     */
+    
     @GetMapping("/map")
     fun mapData(): ResponseEntity<List<Accident>> =
         ResponseEntity.ok(service.findWithCoordinates())
