@@ -6,10 +6,7 @@ import { ActiveFilters } from '../components/FilterPanel'
 const client = axios.create({ baseURL: '/api' })
 
 export const api = {
-  /**
-   * Fetches aggregated statistics.
-   * Pass an ActiveFilters object to narrow the dataset on the server side.
-   */
+  
   getStatistics: async (filters?: Partial<ActiveFilters>): Promise<Statistics> => {
     const params: Record<string, string | number> = {}
     if (filters?.year     != null) params.year     = filters.year

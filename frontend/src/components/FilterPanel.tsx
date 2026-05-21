@@ -9,7 +9,7 @@ export interface ActiveFilters {
 export const EMPTY_FILTERS: ActiveFilters = { year: null, district: null, type: null }
 
 interface Props {
-  /** Unfiltered statistics – used to build the dropdown options */
+  
   baseStats: Statistics | null
   filters:   ActiveFilters
   loading:   boolean
@@ -33,7 +33,7 @@ export function FilterPanel({ baseStats, filters, loading, onChange }: Props) {
         Filtros
       </span>
 
-      {/* ── Ano ──────────────────────────────────────────────────────── */}
+      {}
       <select
         className={selectClass}
         disabled={loading}
@@ -48,7 +48,7 @@ export function FilterPanel({ baseStats, filters, loading, onChange }: Props) {
         ))}
       </select>
 
-      {/* ── Regional ─────────────────────────────────────────────────── */}
+      {}
       <select
         className={selectClass}
         disabled={loading}
@@ -63,7 +63,7 @@ export function FilterPanel({ baseStats, filters, loading, onChange }: Props) {
         ))}
       </select>
 
-      {/* ── Tipo de acidente ─────────────────────────────────────────── */}
+      {}
       <select
         className={selectClass}
         disabled={loading}
@@ -78,7 +78,7 @@ export function FilterPanel({ baseStats, filters, loading, onChange }: Props) {
         ))}
       </select>
 
-      {/* ── Limpar ───────────────────────────────────────────────────── */}
+      {}
       {hasFilter && (
         <button
           className="text-sm text-blue-600 hover:text-blue-800 font-medium underline disabled:opacity-50"
@@ -89,7 +89,7 @@ export function FilterPanel({ baseStats, filters, loading, onChange }: Props) {
         </button>
       )}
 
-      {/* ── Indicador de carregamento ────────────────────────────────── */}
+      {}
       {loading && (
         <span className="text-sm text-gray-400 italic">atualizando…</span>
       )}

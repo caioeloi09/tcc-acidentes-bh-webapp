@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet'
 import { api } from '../services/api'
 import { Accident } from '../types/accident'
 
-// BH city center coordinates
 const BH_CENTER: [number, number] = [-19.9167, -43.9345]
 
 export function AccidentsMap() {
@@ -11,9 +10,9 @@ export function AccidentsMap() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Load a sample of accidents with coordinates for the map
+    
     api.getMapData()
-      .then((data) => setAccidents(data.slice(0, 3000))) // limit for performance
+      .then((data) => setAccidents(data.slice(0, 3000))) 
       .catch(console.error)
       .finally(() => setLoading(false))
   }, [])

@@ -1,19 +1,8 @@
-/**
- * ChartInsight – static but data-driven explanatory tooltips.
- *
- * No external API needed: the component analyses the chart's current data
- * and generates a contextual sentence in Portuguese automatically.
- */
-
-// ── Types accepted per chart ──────────────────────────────────────────────────
-
 interface YearPoint     { year:         number; total: number }
 interface HourPoint     { hour:         number; total: number }
 interface WeekdayPoint  { weekday:      number; total: number }
 interface TypePoint     { type:         string; total: number }
 interface NeighborPoint { neighborhood: string; total: number }
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
 
 const WEEKDAY_NAMES: Record<number, string> = {
   0: 'Segunda-feira', 1: 'Terça-feira', 2: 'Quarta-feira',
@@ -30,8 +19,6 @@ function maxBy<T>(arr: T[], fn: (item: T) => number): T | undefined {
 function fmt(n: number) {
   return n.toLocaleString('pt-BR')
 }
-
-// ── Per-chart insight generators ──────────────────────────────────────────────
 
 function insightByYear(data: YearPoint[]): string {
   if (data.length === 0) return ''
@@ -114,13 +101,11 @@ function insightByNeighborhood(data: NeighborPoint[]): string {
          `tendem a liderar esse ranking.`
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
-
 type ChartType = 'byYear' | 'byHour' | 'byWeekday' | 'byType' | 'topNeighborhoods'
 
 interface Props {
   chartType: ChartType
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   data: any[]
 }
 
