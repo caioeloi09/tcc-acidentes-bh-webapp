@@ -30,3 +30,9 @@ backend/target/
 **/*.tmp
 **/*.swp
 **/*.bak
+
+# ML service – Python
+ml-service/__pycache__/
+ml-service/*.pyc
+ml-service/.venv/
+ml-service/venv/
