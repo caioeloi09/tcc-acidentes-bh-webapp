@@ -19,7 +19,6 @@ export default function App() {
   const [baseStats, setBaseStats] = useState<Statistics | null>(null)
   const [stats, setStats] = useState<Statistics | null>(null)
   const [filters, setFilters] = useState<ActiveFilters>(EMPTY_FILTERS)
-
   const [loading, setLoading] = useState(true)
   const [filtering, setFiltering] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -101,6 +100,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <h1 className="text-2xl font-bold text-gray-800">
           Dashboard de Acidentes de Trânsito – BH
@@ -114,6 +114,7 @@ export default function App() {
       </header>
 
       <main className="p-6 space-y-6">
+        {}
         <section className="bg-white rounded-lg shadow-sm border border-gray-100 px-4 py-3">
           <FilterPanel
             baseStats={baseStats}
@@ -123,6 +124,7 @@ export default function App() {
           />
         </section>
 
+        {}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <StatisticsCard
             label="Total de Acidentes"
@@ -143,6 +145,7 @@ export default function App() {
           />
         </section>
 
+        {}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
             <h2 className="text-base font-semibold text-gray-700 mb-4">Acidentes por Ano</h2>
@@ -155,7 +158,7 @@ export default function App() {
             <ChartInsight chartType="byHour" data={stats?.byHour ?? []} />
           </div>
         </section>
-
+        {}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
             <h2 className="text-base font-semibold text-gray-700 mb-4">Acidentes por Dia da Semana</h2>
@@ -168,7 +171,7 @@ export default function App() {
             <ChartInsight chartType="byType" data={stats?.byType ?? []} />
           </div>
         </section>
-
+        {}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
             <h2 className="text-base font-semibold text-gray-700 mb-4">

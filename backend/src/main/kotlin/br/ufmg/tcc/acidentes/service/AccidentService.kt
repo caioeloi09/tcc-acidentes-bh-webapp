@@ -31,13 +31,7 @@ class AccidentService(private val repository: AccidentRepository) {
     fun findWithCoordinates(): List<Accident> =
         repository.findWithCoordinates()
 
-    /**
-     * Returns aggregated statistics.
-     *
-     * When no filter is active, uses optimised COUNT queries directly in the DB.
-     * When at least one filter is active, loads the matching records and
-     * computes all aggregations in-memory (dataset is small enough for this).
-     */
+    
     fun getStatistics(
         year:     Int?    = null,
         district: String? = null,
@@ -47,7 +41,7 @@ class AccidentService(private val repository: AccidentRepository) {
         val filtered = year != null || district != null || type != null
 
         if (!filtered) {
-            // ── Fast path: delegate all GROUP BY to the database ──────────────
+            
             val total           = repository.count()
             val totalFatalities = repository.findAll().sumOf { it.totalFatalities }
 
@@ -82,13 +76,13 @@ class AccidentService(private val repository: AccidentRepository) {
             )
         }
 
-        // ── Filtered path: load matching records, aggregate in Kotlin ─────────
+        
         val base = repository.findByFilters(year, district, type)
 
         val total           = base.size.toLong()
         val totalFatalities = base.sumOf { it.totalFatalities }
 
-        // Helper: groups by a nullable key, sorts by count desc, returns list of maps
+        
         fun <K : Comparable<K>> aggregateBy(
             keyName: String,
             selector: (Accident) -> K?

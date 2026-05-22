@@ -12,7 +12,7 @@ import { NeighborhoodCount } from '../types/statistics'
 
 interface Props {
   data:  NeighborhoodCount[]
-  /** How many neighborhoods to show (default 10) */
+  
   limit?: number
 }
 

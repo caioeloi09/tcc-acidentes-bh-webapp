@@ -22,10 +22,7 @@ interface AccidentRepository : JpaRepository<Accident, Long> {
     @Query("SELECT a FROM Accident a WHERE a.latitude IS NOT NULL AND a.longitude IS NOT NULL")
     fun findWithCoordinates(): List<Accident>
 
-    /**
-     * Flexible filter used by the statistics endpoint.
-     * Any param that is null is ignored (no restriction applied for that dimension).
-     */
+    
     @Query("""
         SELECT a FROM Accident a
         WHERE (:year     IS NULL OR a.year         = :year)

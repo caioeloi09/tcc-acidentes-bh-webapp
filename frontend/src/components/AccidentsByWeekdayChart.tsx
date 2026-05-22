@@ -14,7 +14,6 @@ interface Props {
   data: WeekdayCount[]
 }
 
-// weekday: 0 = Monday … 6 = Sunday  (conforme model Accident.kt)
 const WEEKDAY_LABELS: Record<number, string> = {
   0: 'Seg',
   1: 'Ter',
@@ -25,7 +24,6 @@ const WEEKDAY_LABELS: Record<number, string> = {
   6: 'Dom',
 }
 
-// Weekends in a slightly different colour to highlight the contrast
 const WEEKEND = new Set([5, 6])
 
 export function AccidentsByWeekdayChart({ data }: Props) {
