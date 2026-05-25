@@ -193,7 +193,6 @@ export default function App() {
         <div className="relative flex items-center py-2">
           <div className="flex-grow border-t border-gray-200" />
           <div className="mx-4 flex items-center gap-2 shrink-0">
-            <span className="text-lg">🤖</span>
             <span className="text-base font-bold text-gray-600 uppercase tracking-widest">
               Análise Preditiva &amp; Estatística
             </span>
@@ -224,11 +223,11 @@ export default function App() {
                     Previsão de Acidentes
                   </h2>
                   <span className="text-xs text-indigo-500 font-medium bg-indigo-50 px-2 py-0.5 rounded-full">
-                    Suavização Exponencial
+                    Naive Sazonal
                   </span>
                 </div>
                 <p className="text-xs text-gray-400 mb-3">
-                  Série histórica mensal com projeção para os próximos 6 meses
+                  Últimos 24 meses do histórico com projeção para os próximos 6 — banda indica ±1 desvio padrão histórico do mesmo mês
                 </p>
                 {mlLoading ? (
                   <div className="flex items-center justify-center h-48 text-gray-300 text-sm">Calculando…</div>

@@ -107,27 +107,36 @@ def forecast(
 
     series = monthly["total"].values.astype(float)
 
-    try:
-        model = ExponentialSmoothing(
-            series,
-            trend="add",
-            seasonal="add" if len(series) >= 24 else None,
-            seasonal_periods=12 if len(series) >= 24 else None,
-        )
-        fit = model.fit(optimized=True, disp=False)
-        pred = fit.forecast(periods)
-        conf_std = np.std(fit.resid) * 1.96
-    except Exception:
-        pred = np.full(periods, series[-1])
-        conf_std = 0.0
+    # Naive Sazonal: previsão de cada mês futuro = média histórica daquele mês
+    # Intervalo de confiança = média ± 1 desvio padrão histórico do mesmo mês
+    last_year = int(monthly["year"].iloc[-1])
+    last_month = int(monthly["month"].iloc[-1])
+
+    pred = []
+    lower_ci = []
+    upper_ci = []
+
+    for i in range(periods):
+        m = last_month + i + 1
+        target_month = ((m - 1) % 12) + 1
+
+        same_month = monthly[monthly["month"] == target_month]["total"].values
+        if len(same_month) == 0:
+            mu = float(series[-1])
+            sigma = float(np.std(series))
+        else:
+            mu = float(np.mean(same_month))
+            sigma = float(np.std(same_month)) if len(same_month) > 1 else mu * 0.1
+
+        pred.append(mu)
+        lower_ci.append(max(0.0, mu - sigma))
+        upper_ci.append(mu + sigma)
 
     historical = [
         {"year": int(r["year"]), "month": int(r["month"]), "total": int(r["total"])}
         for _, r in monthly.iterrows()
     ]
 
-    last_year = int(monthly["year"].iloc[-1])
-    last_month = int(monthly["month"].iloc[-1])
     forecast_points = []
     for i, val in enumerate(pred):
         m = last_month + i + 1
@@ -137,8 +146,8 @@ def forecast(
             "year": y,
             "month": m,
             "total": max(0, round(float(val))),
-            "lower": max(0, round(float(val) - conf_std)),
-            "upper": round(float(val) + conf_std),
+            "lower": max(0, round(float(lower_ci[i]))),
+            "upper": round(float(upper_ci[i])),
         })
 
     return {"historical": historical, "forecast": forecast_points}
