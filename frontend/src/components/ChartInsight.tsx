@@ -126,7 +126,7 @@ export function ChartInsight({ chartType, data }: Props) {
 
   return (
     <div className="mt-3 pt-3 border-t border-gray-100 flex items-start gap-2">
-      <span className="text-base leading-none mt-0.5 shrink-0" aria-hidden>💡</span>
+      <span className="text-base leading-none mt-0.5 shrink-0" aria-hidden></span>
       <div>
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-wide">
           Como interpretar
