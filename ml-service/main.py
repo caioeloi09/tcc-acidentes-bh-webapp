@@ -8,8 +8,6 @@ import pandas as pd
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import LabelEncoder
-from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 DB_PATH = os.environ.get("DB_PATH", "../backend/data/accidents.db")
 
